@@ -138,8 +138,8 @@ jobs:
 
   build-linux-cross:
     name: Ubuntu 22.04 ${{matrix.arch_mkxpz}}
-    # runs-on: ubuntu-22.04
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
+    # runs-on: self-hosted
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
@@ -219,7 +219,7 @@ jobs:
         run: |
           source linux/target-${{matrix.arch_mkxpz}}.sh
           source linux/vars.sh
-          meson setup --cross-file linux/$ARCH_MESON_TOOLCHAIN build --bindir=. --prefix=$GITHUB_WORKSPACE/build/local
+          meson setup --cross-file linux/$ARCH_MESON_TOOLCHAIN build -Dcjk_fallback_font=true --bindir=. --prefix=$GITHUB_WORKSPACE/build/local
           cd build
           ninja
           ninja install
