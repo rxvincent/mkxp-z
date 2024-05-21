@@ -326,18 +326,18 @@ int main(int argc, char *argv[]) {
     if (conf.fullscreen)
       winFlags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
     
-#ifdef GLES2_HEADER
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+// #ifdef GLES2_HEADER
+//   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
+//   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+//   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 
-    // LoadLibrary properly initializes EGL, it won't work otherwise.
-    // Doesn't completely do it though, needs a small patch to SDL
-#ifdef MKXPZ_BUILD_XCODE
-    SDL_setenv("ANGLE_DEFAULT_PLATFORM", (conf.preferMetalRenderer) ? "metal" : "opengl", true);
-    SDL_GL_LoadLibrary("@rpath/libEGL.dylib");
-#endif
-#endif
+//     // LoadLibrary properly initializes EGL, it won't work otherwise.
+//     // Doesn't completely do it though, needs a small patch to SDL
+// #ifdef MKXPZ_BUILD_XCODE
+//     SDL_setenv("ANGLE_DEFAULT_PLATFORM", (conf.preferMetalRenderer) ? "metal" : "opengl", true);
+//     SDL_GL_LoadLibrary("@rpath/libEGL.dylib");
+// #endif
+// #endif
     
     win = SDL_CreateWindow(conf.windowTitle.c_str(), SDL_WINDOWPOS_UNDEFINED,
                            SDL_WINDOWPOS_UNDEFINED, conf.defScreenW,
