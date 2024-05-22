@@ -199,7 +199,7 @@ $(LIBDIR)/libSDL2.a: $(DOWNLOADS)/sdl2/cmakebuild/Makefile
 $(DOWNLOADS)/sdl2/cmakebuild/Makefile: $(DOWNLOADS)/sdl2/CMakeLists.txt
 	cd $(DOWNLOADS)/sdl2; \
 	mkdir cmakebuild; cd cmakebuild; \
-	$(CMAKE) -DBUILD_SHARED_LIBS=no
+	$(CMAKE) -DBUILD_SHARED_LIBS=no -DSDL_KMSDRM=ON
 
 $(DOWNLOADS)/sdl2/CMakeLists.txt:
 	$(CLONE) $(GITHUB)/libsdl-org/SDL $(DOWNLOADS)/sdl2 -b release-2.28.x
