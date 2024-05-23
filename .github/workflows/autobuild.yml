@@ -212,9 +212,7 @@ jobs:
 
       - name: Build everything else
         run: |
-          ls /usr/lib
-          echo AAA
-          ls /usr/lib/x86_64-linux-gnu/pkgconfig/
+          dpkg -L libdrm-dev | grep \.pc$
           pkg-config --list-all
           cd linux
           source target-${{matrix.arch_mkxpz}}.sh
