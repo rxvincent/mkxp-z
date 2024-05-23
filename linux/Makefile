@@ -352,4 +352,5 @@ clean-downloads:
 	-rm -rf downloads
 
 deps-core: libtheora libvorbis pixman libpng physfs sdl2 sdl2image sdlsound sdl2ttf openal openssl fluidsynth uchardet iconv
-everything: deps-core ruby
+#everything: deps-core ruby
+everything: sdl2
