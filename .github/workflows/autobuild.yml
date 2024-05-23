@@ -212,6 +212,7 @@ jobs:
 
       - name: Build everything else
         run: |
+          echo ${PKG_CONFIG_PATH}
           pkg-config --list-all
           cd linux
           source target-${{matrix.arch_mkxpz}}.sh
