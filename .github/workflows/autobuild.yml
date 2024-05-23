@@ -212,7 +212,7 @@ jobs:
 
       - name: Build everything else
         run: |
-          dpkg -L libdrm-dev | grep \.pc$
+          export PKG_CONFIG_PATH=/usr/lib/aarch64-linux-gnu/pkgconfig/
           pkg-config --list-all
           cd linux
           source target-${{matrix.arch_mkxpz}}.sh
