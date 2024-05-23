@@ -212,6 +212,7 @@ jobs:
 
       - name: Build everything else
         run: |
+          pkg-config --list-all
           cd linux
           source target-${{matrix.arch_mkxpz}}.sh
           make
