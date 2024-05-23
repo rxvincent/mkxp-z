@@ -201,11 +201,11 @@ $(DOWNLOADS)/sdl2/cmakebuild/Makefile: $(DOWNLOADS)/sdl2/CMakeLists.txt
 	mkdir cmakebuild; cd cmakebuild; \
 	$(CMAKE) -DBUILD_SHARED_LIBS=no
 
-#$(DOWNLOADS)/sdl2/CMakeLists.txt:
-#	$(CLONE) $(GITHUB)/rxvincent/SDL_mkxp_2 $(DOWNLOADS)/sdl2 -b release-2.30.x
-
 $(DOWNLOADS)/sdl2/CMakeLists.txt:
-	$(CLONE) $(GITHUB)/mkxp-z/SDL $(DOWNLOADS)/sdl2 -b mkxp-z-2.28.1
+	$(CLONE) $(GITHUB)/libsdl-org/SDL $(DOWNLOADS)/sdl2 -b release-2.30.x
+
+#$(DOWNLOADS)/sdl2/CMakeLists.txt:
+#	$(CLONE) $(GITHUB)/mkxp-z/SDL $(DOWNLOADS)/sdl2 -b mkxp-z-2.28.1
 
 # SDL_image
 sdl2image: init_dirs sdl2 $(LIBDIR)/libSDL2_image.a
