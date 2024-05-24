@@ -301,7 +301,7 @@ $(LIBDIR)/libfluidsynth.a: $(DOWNLOADS)/fluidsynth/cmakebuild/Makefile
 
 $(DOWNLOADS)/fluidsynth/cmakebuild/Makefile: $(DOWNLOADS)/fluidsynth/CMakeLists.txt
 	cd $(DOWNLOADS)/fluidsynth; mkdir cmakebuild; cd cmakebuild; \
-	$(CMAKE) -DBUILD_SHARED_LIBS=no -Denable-sdl2=no -Denable-readline=no
+	$(CMAKE) -DBUILD_SHARED_LIBS=no -Denable-sdl2=no -Denable-readline=no -Denable-dbus=no -Denable-libsndfile=no -Denable-pulseaudio=no
 
 $(DOWNLOADS)/fluidsynth/CMakeLists.txt:
 	$(CLONE) $(GITHUB)/mkxp-z/fluidsynth-sans-glib $(DOWNLOADS)/fluidsynth
