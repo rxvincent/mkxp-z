@@ -290,6 +290,9 @@ struct Movie
 
             // Periodically check the buffers until one is available
             while(true) {
+                // Quit if audio thread terminate request has been made
+                if (audioThreadTermReq) return;
+
                 alGetSourcei(audioSource, AL_BUFFERS_PROCESSED, &procBufs);
                 if(procBufs > 0) break;
                 SDL_Delay(AUDIO_SLEEP);
@@ -1358,7 +1361,7 @@ DEF_ATTR_RD_SIMPLE(Graphics, FrameRate, int, p->frameRate)
 DEF_ATTR_SIMPLE(Graphics, FrameCount, int, p->frameCount)
 
 void Graphics::setFrameRate(int value) {
-    p->frameRate = clamp(value, 10, 120);
+    p->frameRate = std::max(value, 1);
     
     if (p->threadData->config.syncToRefreshrate)
         return;
